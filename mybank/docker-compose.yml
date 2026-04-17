@@ -1,0 +1,42 @@
+services:
+  springboot:
+    build: .
+    container_name: my_bank
+    depends_on:
+      - postgres-db
+    ports:
+      - "9091:9091"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/mybank
+      SPRING_DATASOURCE_USERNAME: bankdb
+      SPRING_DATASOURCE_PASSWORD: abc@123
+    networks:
+      - banknetwork
+
+  redis:
+    image: redis:7.4.2
+    container_name: my_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+    networks:
+      - banknetwork
+
+  postgres-db:
+    image: postgres:16
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: mybank
+      POSTGRES_USER: bankdb
+      POSTGRES_PASSWORD: abc@123
+    ports:
+      - "5422:5432"
+    volumes:
+      - ./mybank-db:/var/lib/postgresql/data
+    networks:
+      - banknetwork
+
+networks:
+  banknetwork:
+    driver: bridge

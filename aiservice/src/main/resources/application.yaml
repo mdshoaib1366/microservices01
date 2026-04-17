@@ -1,0 +1,42 @@
+server:
+  port: 4044
+
+spring:
+  application:
+    name: ai-service
+  mongodb:
+    uri: mongodb://localhost:27017/fitness
+    database: fitness
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin123
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
+
+#gemini:
+#  api:
+#    url: ${GEMINI_API_URL}
+#    key: ${GEMINI_API_KEY}
+openai:
+  apikey: ${OPENAI_API_KEY}
+  url: https://api.openai.com/v1/chat/completions
+  model: gpt-4.1-mini

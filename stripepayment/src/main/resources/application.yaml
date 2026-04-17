@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: stripepayment
+
+stripe:
+  secret-key: sk_test_51T9fZHBMsjn45j1Zeb9QIotWA74H0oVlPvHp2PNeeqpFRgtksprwSWEIA1H36AcamXhcduBaOOEge5Ht0EXHSF3Z00dT3j0lN1
+  publishable-key: pk_test_51T9fZHBMsjn45j1ZpQeLwmmbRYWdFe8MxqMgqvqhWhM3BGTojIHq753SFCCd1OccaWu8B60WDqXezIUleCwvZfkM00iRuQSDya

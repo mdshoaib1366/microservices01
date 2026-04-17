@@ -1,0 +1,32 @@
+server:
+  port: 9091
+
+spring:
+  #Application-name
+  application:
+    name: mybank
+  #DATABASE-CONFIG
+  datasource:
+    url: jdbc:postgresql://localhost:5432/my_bank
+    username: postgres
+    password: admin
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+
+  #Redis-Cache
+  cache:
+    type: redis
+  data:
+    redis:
+      host: my_redis
+      port: 6379
+
+security:
+  jwt:
+    secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+    expiration-time: 3600000
