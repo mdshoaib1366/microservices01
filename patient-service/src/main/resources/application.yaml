@@ -1,0 +1,22 @@
+server:
+  port: 4041
+
+spring:
+  application:
+    name: patient-service
+#  datasource:
+#    url: jdbc:postgresql://localhost:5433/patient_service
+#    username: manoj
+#    password: 123456
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+logging:
+  level:
+    root: info
